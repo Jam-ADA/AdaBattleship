@@ -18,7 +18,6 @@ vector<vector<string>> getConfig() {
         configLine[1] = configLine[1] + line.at(c);
       }
     }
-    cout << configLine[1] << endl;
     configVector.push_back(configLine);
   }
   return configVector;
