@@ -13,3 +13,4 @@
 #include "playGame.h"
 #include <ctime>
 #include <unistd.h>
+#include "random.h"

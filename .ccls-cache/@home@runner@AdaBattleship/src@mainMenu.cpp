@@ -57,7 +57,7 @@ void displayMenu() {
     } else if (input == '\n') {
       switch (selected) {
       case 0:
-        setupVSComp();
+        playVSComp();
         break;
       case 1:
         cout << "PLAY GAME VS PLAYER";
