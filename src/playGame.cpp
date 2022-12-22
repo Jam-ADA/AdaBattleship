@@ -406,4 +406,80 @@ void playVSComp() {
     
   }
 }
+
+void playVSplay() {
+  vector<vector<vector<char>>> affectedBoards;
+  bool playing = true;
+  bool playerWin = false;
+  bool computerWin = false;
+  Config config;
+  vector<vector<char>> player1Board = constructBoard(config);
+  vector<vector<char>> player2Board = constructBoard(config);
+  vector<vector<char>> player1Target = constructBoard(config);
+  vector<vector<char>> player2Target = constructBoard(config);
+  cout << "\nPlayer 1's turn..." << endl;
+  cout << "Enter any key to continue..." << endl;
+  player1Board = playerPlace(config, player1Board, config.BoatCarrier, 'C');
+  player1Board = playerPlace(config, player1Board, config.BoatBattleship, 'B');
+  player1Board = playerPlace(config, player1Board, config.BoatDestroyer, 'D');
+  player1Board = playerPlace(config, player1Board, config.BoatSubmarine, 'S');
+  player1Board = playerPlace(config, player1Board, config.BoatPatrol, 'P');
+  cout << "\nPlayer 2's turn..." << endl;
+  cout << "Enter any key to continue..." << endl;
+  player2Board = playerPlace(config, player2Board, config.BoatCarrier, 'C');
+  player2Board = playerPlace(config, player2Board, config.BoatBattleship, 'B');
+  player2Board = playerPlace(config, player2Board, config.BoatDestroyer, 'D');
+  player2Board = playerPlace(config, player2Board, config.BoatSubmarine, 'S');
+  player2Board = playerPlace(config, player2Board, config.BoatPatrol, 'P');
+  cout << "Get Ready to play..." << endl;
+  sleep(1);
+  while(playing) {
+    cout << CONSOLE_CLEAR;
+    cout << endl << "Player 1 turn..." << endl;
+    sleep(1);
+    cout << CONSOLE_CLEAR;
+    affectedBoards = playerAttack(player1Target, player2Board);
+    player1Target = affectedBoards[0];
+    player2Board = affectedBoards[1];
+    cout << CONSOLE_CLEAR;
+    cout << "Player 1's target board:" << endl;
+    displayBoard(player1Target);
+    cout << "\nPress any key to continue...";
+    getch();
+    cout << CONSOLE_CLEAR << "\nPlayer 2's turn...";
+    sleep(1);
+    cout << CONSOLE_CLEAR;
+    affectedBoards = playerAttack(player2Target, player1Board);
+    player2Target = affectedBoards[0];
+    player1Board = affectedBoards[1];
+    cout << CONSOLE_CLEAR;
+    cout << "Player 2's target board:" << endl;
+    displayBoard(player2Target);
+    cout << "\n\nPlayer 1's target board:\n";
+    displayBoard(player1Target);
+    cout << "\nPress any key to continue...";
+    getch();
+    cout << CONSOLE_CLEAR << "\nPlayer 1's Score:" << endl;
+    playerWin = checkScore(player1Board);
+    cout << "\nPress any key to continue...";
+    getch();
+    cout << CONSOLE_CLEAR << "\nPlayer 2's Score:" << endl;
+    computerWin = checkScore(player2Board);
+    cout << "\nPress any key to continue...";
+    getch();
+    cout << CONSOLE_CLEAR;
+    if(playerWin == true) {
+      cout << "THE PLAYER 1 HAS WON!\n" << endl;
+      cout << "\nPress any key to continue...";
+      getch();
+      playing = false;
+    } else if(computerWin == true) {
+      cout << "THE PLAYER 2 HAS WON!\n" << endl;
+      cout << "\nPress any key to continue...";
+      getch();
+      playing = false;
+    }
+    
+  }
+}
   

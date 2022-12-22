@@ -60,10 +60,10 @@ void displayMenu() {
         playVSComp();
         break;
       case 1:
-        cout << "PLAY GAME VS PLAYER";
+        playVSplay();
         break;
       case 2:
-        cout << "QUIT";
+        cout << "Exitting...";
         return;
         break;
       }

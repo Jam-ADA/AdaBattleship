@@ -12,3 +12,4 @@ vector<vector<vector<char>>> playerAttack(vector<vector<char>> target, vector<ve
 
 vector<vector<vector<char>>> computerAttack(vector<vector<char>> target, vector<vector<char>> board);
 void playVSComp();
+void playVSplay();

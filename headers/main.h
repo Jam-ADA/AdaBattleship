@@ -11,6 +11,6 @@
 #include "colours.h"
 #include "mainMenu.h"
 #include "playGame.h"
-#include <ctime>
+#include <ctime> //for sleep function
 #include <unistd.h>
 #include "random.h"
