@@ -146,6 +146,7 @@ vector<vector<char>> computerPlace(Config config, vector<vector<char>> board, in
   while(placed != true) {
     board = originalBoard;
     posX = randomInt(0,board.size());
+    sleep(1);
     posY = randomInt(0,board[0].size());
     if(randomInt(0,1) == 1) {
       rotated = true;
@@ -191,6 +192,7 @@ vector<vector<vector<char>>> computerAttack(vector<vector<char>> target, vector<
   vector<vector<vector<char>>> affectedBoards;
   while(true) {
     targetX = randomInt(0,board.size() - 1);
+    sleep(1);
     targetY = randomInt(0,board[1].size() - 1);
     target = originalTarget;
     target[targetX][targetY] = '+';
